@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import "./App.css";
-
+import ShowDate from "./Date"
+import ShowTitle from "./Title"
+import ShowImage from "./NasaPic"
+import ShowExplanation from './Explanation';
 
 function App() {
   const [url, setUrl] = useState("")
@@ -15,23 +18,18 @@ function App() {
         setUrl(data.data.url);
         setTitle(data.data.title);
         setExplanation(data.data.explanation);
-        console.log(data.data);
         
       })
       .catch(err => console.log('Error getting details: ', err))
   }, [])
-  console.log(url)
-  console.log(date)
-  console.log(title)
+ 
   return (
     <div className="App">
     
-      <h1>{title}</h1>
-      <h3>Today's Date is {date}</h3>
-      <img alt = "NASA daily image " src = {url}></img>
-      <p>{explanation}</p>
-
-
+      <ShowTitle title={title}/>
+      <ShowDate date={date} />
+      <ShowImage url={url} />
+      <ShowExplanation explanation={explanation}/>
     </div>
   );
 }
