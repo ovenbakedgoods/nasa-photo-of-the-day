@@ -12,7 +12,7 @@ function App() {
   const [title, setTitle] = useState("")
   const [explanation, setExplanation] = useState("")
   useEffect(() => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2012-03-14`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=bydNdCSGbfz2MqBGNGFxlmPJhepfwkap0cgXSCEm&date=2021-06-13`)
       .then(data => {
         setDate(data.data.date);
         setUrl(data.data.url);
